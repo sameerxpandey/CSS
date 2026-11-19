@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body {
+    
+    
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at 50% 50%, #24205c 0%, transparent 50%),
+        linear-gradient(135deg, #050510, #10102b, #050510);
+
+    overflow: hidden;
+
+
+    
+    }
+    .planet {
+    height: 230px;
+    width: 230px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+        135deg,
+        #a9a1ff,
+        #5845b5 40%,
+        #101a56 75%,
+        #080b20
+    );
+    box-shadow:
+        0 0 40px #7861ff,
+        0 0 100px #5241bb,
+        inset -25px -15px 40px #050516;
+}
+
+.planet-shine {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 25%,
+        rgba(255,255,255,0.3),
+        transparent 60%
+    );
+    animation: shine 5s linear infinite;
+}
+
+/* ORBIT RINGS */
+
+.orbit {
+    position: absolute;
+    border: 1px solid rgba(164, 143, 255, 0.55);
+    border-radius: 50%;
+    transform: rotate(-25deg);
+}
+
+.orbit-one {
+    width: 420px;
+    height: 160px;
+    animation: rotateOrbit 9s linear infinite;
+}
+
+.orbit-two {
+    width: 510px;
+    height: 210px;
+    transform: rotate(35deg);
+    border-color: rgba(73, 180, 255, 0.4);
+    animation: rotateOrbit 15s linear infinite reverse;
+}
+
+.orbit-three {
+    width: 360px;
+    height: 300px;
+    transform: rotate(65deg);
+    border-color: rgba(180, 140, 255, 0.25);
+    animation: rotateOrbit 20s linear infinite;
+}
+
+/* SATELLITE */
+
+.satellite {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #70d9ff;
+    position: absolute;
+    top: 85px;
+    right: 65px;
+    box-shadow: 0 0 20px #70d9ff,
+                0 0 40px #70d9ff;
+    animation: satellitePulse 2s infinite alternate;
+}
+/* ANIMATIONS */
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes rotateOrbit {
+    from { rotate: 0deg; }
+    to { rotate: 360deg; }
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes satellitePulse {
+    from { transform: scale(0.8); }
+    to { transform: scale(1.4); }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.stars {
+    position: fixed;
+    inset: 0;
+    z-index: -1;  /* Push stars behind everything */
+
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#8d8bff 1px, transparent 1px);
+
+    background-size: 90px 90px, 140px 140px;
+    background-position: 0 0, 40px 50px;
+
+    opacity: 0.5;
+    animation: starMove 30s linear infinite;
+    pointer-events: none;
+}
+
+</style>
+</head>
+<body>
+    <div class="universe">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <div class="orbit orbit-three"></div>
+
+            <div class="planet">
+                <div class="planet-shine"></div>
+            </div>
+
+            <div class="satellite"></div>
+        </div>
+        <div class="stars"></div>
+</body>
+</html>
