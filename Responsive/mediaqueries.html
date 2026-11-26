@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+     body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: greenyellow;
+    }
+    .colour {
+        grid-area: auto;
+        background-color: blue;
+        width: 400px;
+        height: 400px;
+        
+
+    }
+    @media (min-width: 600px) {
+        .colour {background-color: rgb(34, 129, 231);}
+    }
+    @media (min-width: 768px) {
+        .colour {background-color: skyblue;}
+    }
+    @media (min-width: 400px) {
+        body {background-color: rgb(9, 83, 29);}
+    }
+</style>
+</head>
+<body>
+    <div class="colour"> 
+
+    </div>
+</body>
+</html>
